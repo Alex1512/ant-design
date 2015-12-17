@@ -62,6 +62,7 @@ exports.middlewares = [
     name: 'upload',
     filter: /upload\.do?$/,
     handle: function(req, res, next) {
+    console.log('请求：'+req);
       if (req.method === 'POST') {
         var busboy = new Busboy({headers: req.headers});
         busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
